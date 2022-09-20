@@ -1,6 +1,6 @@
-# untitled
+# Lecture 2-1 Example
 
-A new Flutter project.
+CS 1635 Lecture 2-1 Graphics in Flutter example
 
 ## Getting Started
 
