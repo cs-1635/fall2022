@@ -86,7 +86,7 @@ Future<double> futureLongMultiply(double inValue) {
 
   double outValue = inValue * 2;
 
-  return Future<double>.value(inValue);
+  return Future<double>.value(outValue);
 }
 
 
