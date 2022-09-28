@@ -6,7 +6,7 @@ void main(List<String> arguments) {
 
   // Part 1
 
-  futures_demo_code.syncExample();
+  //futures_demo_code.syncExample();
 
   //futures_demo_code.futureExample();
 
@@ -16,7 +16,7 @@ void main(List<String> arguments) {
 
   //futures_demo_code.syncInClassExample();
 
-
+    futures_demo_code.futureInClassExample();
 
   // Part 2
 

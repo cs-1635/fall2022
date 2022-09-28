@@ -13,7 +13,7 @@ Stream<int> _randomNumbersAsyncGenerator() async* {
 
 Iterable<int> _randomNumbersSyncGenerator() sync* {
   final random = Random();
-  for(int i = 0; i < 25; ++i){
+  for(int i = 0; i < 5; ++i){
     sleep(Duration(seconds:1));
     yield random.nextInt(100);
   }
@@ -21,25 +21,19 @@ Iterable<int> _randomNumbersSyncGenerator() sync* {
 
 
 void randomNumbersAsyncSubscriber() async {
-
   final stream = _randomNumbersAsyncGenerator();
-
   await for(int value in stream) {
     print(value);
   }
-
   print("Async stream example");
 }
 
 
 void randomNumbersSyncSubscriber()  {
-
   final stream = _randomNumbersSyncGenerator();
-
    for(int value in stream) {
     print(value);
   }
-
   print("Sync stream example");
 }
 
@@ -94,11 +88,8 @@ class RandomNumberStream{
 
 
 void streamControllerExample() async {
-
   final stream = RandomNumberStream().stream;
-
   await Future.delayed(Duration(seconds:2));
-
   final subscription = stream.listen((int random) {
     print(random);
   });

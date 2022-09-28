@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
@@ -82,10 +83,12 @@ void futureChainedExample(){
 
 
 Future<double> futureLongMultiply(double inValue) {
+
+  print("start futureLongMultiply()");
   sleep(Duration(seconds:1));
 
   double outValue = inValue * 2;
-
+  print("leaving futureLongMultiply()");
   return Future<double>.value(outValue);
 }
 
@@ -94,8 +97,8 @@ Future<double> futureLongMultiply(double inValue) {
 /*
 Rather than chain, you can put a whole bunch of long methods/tasks in a wait list, continue when all return...
 
-Future.wait<int> a = methodA();
-Future.wait<int> b = methodB();
+Future.<int> a = methodA();
+Future.<int> b = methodB();
 
 Future.wait<int>([a, b])
     .then(....)
@@ -126,5 +129,35 @@ int methodCInClassExample() {
 }
 
 
+
+
+
+
+Future<int> futureAInClassExample(){
+  sleep(Duration(seconds:1));
+  return Future<int>.value(40);
+}
+
+Future<int> futureBInClassExample(){
+  sleep(Duration(seconds:1));
+  return Future<int>.value(45);
+}
+
+Future<int> futureCInClassExample(){
+  sleep(Duration(seconds:1));
+  return Future<int>.value(50);
+}
+
+void futureInClassExample(){
+
+  Future<int> futureA = futureAInClassExample();
+  Future<int> futureB = futureBInClassExample();
+  Future<int> futureC = futureCInClassExample();
+
+
+  Future.wait<int>([futureA, futureB, futureC])
+      .then((data) => print("result: " + (data[0] * data[1] * data[2]).toString()));
+
+}
 
 
