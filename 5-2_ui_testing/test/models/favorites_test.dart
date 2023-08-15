@@ -19,5 +19,26 @@ void main() {
       expect(favorites.items.contains(number), false);
     });
 
+    test('An item should be removed', () {
+      var numberA = 20;
+      var numberB = 30;
+      var numberC = 40;
+
+      favorites.add(numberA);
+      favorites.add(numberB);
+
+      expect(favorites.items.contains(numberA), true);
+      expect(favorites.items.contains(numberB), true);
+      expect(favorites.items.contains(numberC), false);
+
+      favorites.remove(numberA);
+
+      expect(favorites.items.contains(numberA), false);
+      expect(favorites.items.contains(numberB), true);
+      expect(favorites.items.contains(numberC), false);
+
+
+    });
+
   });
 }
